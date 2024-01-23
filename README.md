@@ -44,8 +44,6 @@ magcopy paste /path/to/destination/folder
 
 In case of errors, the utility provides clear error messages to guide the user.
 
-Certainly! Below is an additional section for testing using `pytest` in your README:
-
 ## Testing
 
 To run the tests for `magcopy`, you need to have `pytest` installed. If you don't have it installed, you can install it using the following command:
