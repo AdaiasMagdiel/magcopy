@@ -1,7 +1,7 @@
 import pytest
 from pathlib import Path
-from core import InvalidPathError, ACTION_FILE, CLIPBOARD_FILE
-from core.clipboard import (
+from magcopy import InvalidPathError, ACTION_FILE, CLIPBOARD_FILE
+from magcopy.clipboard import (
     add_to_clipboard,
     get_action,
     read_from_clipboard,
