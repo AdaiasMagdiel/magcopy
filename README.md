@@ -47,6 +47,34 @@ magcopy copy /path/to/source/file --clip
 
 In case of errors, the utility provides clear error messages to guide the user.
 
+Certainly! Below is an additional section for testing using `pytest` in your README:
+
+## Testing
+
+To run the tests for `magcopy`, you need to have `pytest` installed. If you don't have it installed, you can install it using the following command:
+
+```bash
+pip install pytest
+```
+
+Once `pytest` is installed, you can run the tests by executing the following command in the root directory of your project:
+
+```bash
+pytest
+```
+
+This will discover and run all the test files in your project. Make sure you have the required dependencies and a proper Python environment set up before running the tests.
+
+### Running Specific Tests
+
+If you want to run tests from a specific file or directory, you can provide the file or directory path as an argument to `pytest`. For example:
+
+```bash
+pytest tests/test_clipboard.py
+```
+
+This command will run only the tests defined in the `test_clipboard.py` file.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
