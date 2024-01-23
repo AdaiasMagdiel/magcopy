@@ -45,30 +45,35 @@ def execute_path_action(action: str) -> None:
         sys.exit(1)
 
 
-sys.argv = sys.argv[1:]
+def main():
+    sys.argv = sys.argv[1:]
 
-clip_flag = "--clip" in sys.argv
-if clip_flag:
-    sys.argv.pop(sys.argv.index("--clip"))
+    clip_flag = "--clip" in sys.argv
+    if clip_flag:
+        sys.argv.pop(sys.argv.index("--clip"))
 
-if "--help" in sys.argv or len(sys.argv) == 0:
-    print(usage)
-    sys.exit(0)
+    if "--help" in sys.argv or len(sys.argv) == 0:
+        print(usage)
+        sys.exit(0)
 
-command = sys.argv.pop(0)
-if command == "copy":
-    execute_path_action(Actions.COPY)
+    command = sys.argv.pop(0)
+    if command == "copy":
+        execute_path_action(Actions.COPY)
 
-elif command == "move":
-    execute_path_action(Actions.MOVE)
+    elif command == "move":
+        execute_path_action(Actions.MOVE)
 
-elif command == "paste":
-    path = get_arg_path()
+    elif command == "paste":
+        path = get_arg_path()
 
-    paste(path)
+        paste(path)
 
-else:
-    print(
-        f"Error: Unknown or invalid command '{command}'. Use 'magcopy --help' to view the usage guide."
-    )
-    sys.exit(1)
+    else:
+        print(
+            f"Error: Unknown or invalid command '{command}'. Use 'magcopy --help' to view the usage guide."
+        )
+        sys.exit(1)
+
+
+if __name__ == "__mai__":
+    main()
