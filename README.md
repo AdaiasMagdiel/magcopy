@@ -13,7 +13,7 @@ pip install magcopy
 ## Usage
 
 ```bash
-magcopy <action> <path/file> [--clip] [--help]
+magcopy <action> <path/file> [--help]
 ```
 
 ### Actions
@@ -24,7 +24,6 @@ magcopy <action> <path/file> [--clip] [--help]
 
 ### Options
 
-- `--clip`: If the command is 'copy' and the object is a file, use this option to copy the file content to the system clipboard.
 - `--help`: Display the usage message.
 
 ### Examples
@@ -35,8 +34,6 @@ magcopy paste /path/to/destination/folder
 
 magcopy move /path/to/source/file
 magcopy paste /path/to/destination/folder
-
-magcopy copy /path/to/source/file --clip
 ```
 
 ## Notes
