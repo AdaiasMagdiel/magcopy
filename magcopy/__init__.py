@@ -7,6 +7,8 @@ MAX_ITEMS_IN_CLIPBOARD = 10
 CLIPBOARD_FILE = Path(__file__).parent.parent.joinpath(".clipboard").resolve()
 ACTION_FILE = Path(__file__).parent.parent.joinpath(".action").resolve()
 
+__version__ = "0.0.2"
+
 
 class Actions:
     COPY = "copy"
