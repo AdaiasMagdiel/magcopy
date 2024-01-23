@@ -1,4 +1,6 @@
 import sys
+from core import Actions, InvalidPathError, clipboard
+from core.path import paste
 
 usage = """\
 Usage: magcopy <action> <path/file>
@@ -25,6 +27,25 @@ Example:
     magcopy copy /path/to/source/file --clip
 """
 
+
+def get_arg_path() -> str:
+    if len(sys.argv) == 0:
+        print("Error: Please provide the path for the file or folder.")
+        sys.exit(1)
+
+    return sys.argv.pop(0)
+
+
+def execute_path_action(action: str) -> None:
+    path = get_arg_path()
+
+    try:
+        clipboard.add_to_clipboard(action, path)
+    except InvalidPathError as error:
+        print(error)
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     sys.argv = sys.argv[1:]
 
@@ -38,11 +59,16 @@ if __name__ == "__main__":
 
     command = sys.argv.pop(0)
     if command == "copy":
-        pass
+        execute_path_action(Actions.COPY)
+
     elif command == "move":
-        pass
+        execute_path_action(Actions.MOVE)
+
     elif command == "paste":
-        pass
+        path = get_arg_path()
+
+        paste(path)
+
     else:
         print(
             f"Error: Unknown or invalid command '{command}'. Use 'magcopy --help' to view the usage guide."
