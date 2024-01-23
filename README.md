@@ -73,3 +73,40 @@ This command will run only the tests defined in the `test_clipboard.py` file.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions to `magcopy` are welcome! If you find a bug, have a feature request, or want to contribute in any other way, feel free to open an issue or submit a pull request. Your help is highly appreciated.
+
+### How to Contribute
+
+1. Fork the repository on GitHub.
+2. Clone your forked repository to your local machine:
+
+    ```bash
+    git clone https://github.com/your-username/magcopy.git
+    ```
+
+3. Create a new branch for your contribution:
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+4. Make your changes and commit them with a descriptive commit message:
+
+    ```bash
+    git commit -m "Add your descriptive message here"
+    ```
+
+5. Push your changes to your fork:
+
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+6. Open a pull request on the official `magcopy` repository.
+
+### Reporting Issues
+
+If you encounter any issues or have suggestions, please open an issue on the [GitHub issue tracker](https://github.com/your-username/magcopy/issues). Provide detailed information about the problem you're facing or the enhancement you're proposing.
