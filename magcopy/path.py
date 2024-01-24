@@ -16,8 +16,6 @@ def __copy(input_path: Path, output_path: Path) -> None:
             f"Destination '{output_path}' is a file, not a directory."
         )
 
-    print('path.py:', input_path, output_path)
-
     if input_path.is_file():
         shutil.copy(input_path, output_path)
         print(f'File successfully copied to "{output_path}".')
@@ -46,8 +44,6 @@ def paste(path: PathLike):
     input_path = read_from_clipboard()
     output_path = Path(path) if isinstance(path, str) else path
     action = get_action()
-
-    print('path.py -> paste:', input_path, output_path)
 
     if not output_path.is_file() and not output_path.is_dir():
         raise InvalidPathError("Error: Please provide a valid path.")

@@ -63,7 +63,6 @@ def main():
 
     elif command == "paste":
         path = get_arg_path()
-        print(f'main.py -> paste: {path}')
 
         try:
             paste(path)
