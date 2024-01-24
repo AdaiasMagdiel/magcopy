@@ -1,5 +1,6 @@
 from pathlib import Path
 from magcopy import (
+    EmptyClipboardError,
     InvalidPathError,
     PathLike,
     MAX_ITEMS_IN_CLIPBOARD,
@@ -48,6 +49,11 @@ def read_from_clipboard() -> Path:
         for item in CLIPBOARD_FILE.read_text().split("\n")
         if item != ""
     ]
+
+    if len(clipboard_items) == 0:
+        raise EmptyClipboardError(
+            "Error: The clipboard is empty. Use the 'copy' or 'move' command before 'paste'."
+        )
 
     return Path(clipboard_items[0])
 
