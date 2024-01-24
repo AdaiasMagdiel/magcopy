@@ -1,5 +1,6 @@
 import sys
-from magcopy import Actions, InvalidPathError, clipboard
+from pathlib import Path
+from magcopy import Actions, EmptyClipboardError, InvalidPathError, clipboard
 from magcopy.path import paste
 
 usage = """\
@@ -32,7 +33,8 @@ def get_arg_path() -> str:
         print("Error: Please provide the path for the file or folder.")
         sys.exit(1)
 
-    return sys.argv.pop(0)
+    path = sys.argv.pop(0)
+    return Path(path).resolve().as_posix()
 
 
 def execute_path_action(action: str) -> None:
@@ -48,10 +50,6 @@ def execute_path_action(action: str) -> None:
 def main():
     sys.argv = sys.argv[1:]
 
-    clip_flag = "--clip" in sys.argv
-    if clip_flag:
-        sys.argv.pop(sys.argv.index("--clip"))
-
     if "--help" in sys.argv or len(sys.argv) == 0:
         print(usage)
         sys.exit(0)
@@ -65,8 +63,13 @@ def main():
 
     elif command == "paste":
         path = get_arg_path()
+        print(f'main.py -> paste: {path}')
 
-        paste(path)
+        try:
+            paste(path)
+        except EmptyClipboardError as error:
+            print(error)
+            sys.exit(1)
 
     else:
         print(
