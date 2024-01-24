@@ -7,7 +7,7 @@ MAX_ITEMS_IN_CLIPBOARD = 10
 CLIPBOARD_FILE = Path(__file__).parent.parent.joinpath(".clipboard").resolve()
 ACTION_FILE = Path(__file__).parent.parent.joinpath(".action").resolve()
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 
 class Actions:
@@ -25,4 +25,8 @@ class InvalidActionError(Exception):
 
 
 class OutputIsNonDirectoryError(Exception):
+    pass
+
+
+class EmptyClipboardError(Exception):
     pass
